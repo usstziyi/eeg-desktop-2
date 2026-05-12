@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openbci-realtime-app"
+version = "0.1.0"
+description = "Realtime OpenBCI Cyton EEG desktop app built with BrainFlow, PySide6, and PyQtGraph."
+requires-python = ">=3.10"
+dependencies = [
+  "brainflow>=5.12.0",
+  "numpy>=1.26",
+  "scipy>=1.11",
+  "PySide6>=6.6",
+  "pyqtgraph>=0.13.7",
+]
+
+[tool.setuptools.packages.find]
+include = ["openbci_realtime_app*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["UP007"]
+
