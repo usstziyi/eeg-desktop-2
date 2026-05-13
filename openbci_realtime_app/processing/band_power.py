@@ -20,6 +20,6 @@ def compute_band_powers(freqs: np.ndarray, psd: np.ndarray) -> tuple[tuple[str, 
     for band_index, (_, low, high) in enumerate(BANDS):
         mask = (freqs >= low) & (freqs < high)
         if np.any(mask):
-            powers[:, band_index] = np.trapz(psd[:, mask], freqs[mask], axis=1)
+            powers[:, band_index] = np.trapezoid(psd[:, mask], freqs[mask], axis=1)
     return names, powers
 
